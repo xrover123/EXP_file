@@ -28,7 +28,7 @@ var
 implementation
 
 {$R *.dfm}
-uses IniFiles, {EasyCript,} NetConf, FileFunc, crypt;
+uses IniFiles, {EasyCript,} {NetConf,} FileFunc, crypt;
 
 const LR:char=#10;
       LR_:string=#13#10;
