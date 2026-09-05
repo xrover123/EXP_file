@@ -207,18 +207,23 @@ procedure PrintIniExample;
     begin
     AssignFile(T,extractFilePath(ParamStr(0))+'SAMPLE.INI');
     Rewrite(T);
-    writeLN(T,'[FILES]#Секция описания файлов импорта');
-    writeLN(T,'  FILE1=<Файл>;<Процедура импорта строки>');
-    writeLN(T,'  FILE2=<Файл>;<Процедура импорта строки>');
+    writeLN(T,'[FILE]');
+    writeLN(T,'  DELAY=<Задержка перед следующей попыткой записи файла>');
+    writeLN(T,'  MAX_RET=<Кол-во попыток записи файла>');
+    writeLN(T,'  EXP_FILE_PATH=<каталог записи файла>');
+    writeLN(T,'  EXP_TMP=<Временная дирректория, где создаются файлы, а затем из нее перемещаются в дирректорию EXP_FILE_PATH>');
+    writeLN(T,'  WAIT_INTERVAL=<Интервал опроса блокировочного файла>');
+    writeLN(T,'  WAIT_HOUR=<Время ожидания удаления блокировочного файла>');
+
     writeLN(T,'[DB]');
     writeLN(T,'  DB_NAME=<Псевдоним БД>');
     writeLN(T,'  USER=<Пользователь>');
     writeLN(T,'  PSW=<Закодированный пароль (записать пароль можно с помошью утилиты psw <пароль>)>');
-    writeLN(T,'  PREP_PROC=<Процедура перед импортом>');
-    writeLN(T,'  SAVE_PROC=<Процедура после импорта>');
+
     writeLN(T,'[OTHERS]');
     writeLN(T,'  REGIME=<0 - все сообщения выводятся в LOG (если он задан); 10 - сообщения выводятся.>');
-    writeLN(T,'  LOG=<Лог файл>');
+    writeLN(T,'  LOG=<Каталог лог файла>');
+    writeLN(T,'  EXP_LOG=<Файл лога>');
     CloseFile(T);
     Close
     end;
